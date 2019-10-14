@@ -1,7 +1,10 @@
-### OSX ###
+# OSX
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# VS Code
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
