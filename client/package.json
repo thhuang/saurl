@@ -1,0 +1,16 @@
+{
+  "name": "saurl",
+  "version": "1.0.0",
+  "description": "A super awesome URL shortener.",
+  "main": "index.js",
+  "devDependencies": {
+    "typescript": "^3.6.4"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "thhuang",
+  "license": "MIT"
+}
