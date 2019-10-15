@@ -9,7 +9,7 @@ from .models import ShortUrl
 from .serializers import ShortUrlSerializer
 
 
-@csrf_exempt  # TODO: Just for testin! Remove csrf_exempt!
+@csrf_exempt  # TODO: Just for testing! Remove csrf_exempt!
 def shorturl_create_view(request):
     """
     Create a new short URL if it does not exist yet.
@@ -18,6 +18,9 @@ def shorturl_create_view(request):
         data = JSONParser().parse(request)
         user_id = data.get('user_id')
         long_url = data.get('long_url')
+
+        # TODO: Is URL valid?
+        # TODO: Is URL shorten?
 
         # If the shorten URL already exists
         if ShortUrl.objects.filter(long_url=long_url).exists():
