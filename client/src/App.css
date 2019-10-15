@@ -1,3 +1,44 @@
+#root {
+  background: #EBEBEB;
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+.footer {
+  position: absolute; 
+  bottom: 10%; 
+  width: 100%;
+}
+
 .App {
   text-align: center;
+}
+
+.saurl {
+  font-family: "Quicksand", sans-serif;
+  font-size: 10em;
+  font-weight: 500;
+  color: #2C365D;
+  padding-top: 10%;
+}
+
+.description {
+  padding-bottom: 1em;
+}
+
+.search-bar {
+  padding-top: 2em;
+  padding-bottom: 2em;
+  padding-right: 0;
+  padding-left: 0;
+  width: 800px;
+}
+
+.copy-panel {
+  padding-right: 10%;
+  padding-left: 10%;
+  width: 600px;
 }

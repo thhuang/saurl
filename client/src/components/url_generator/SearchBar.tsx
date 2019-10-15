@@ -24,7 +24,7 @@ export class SearchBar extends Component<ISearchBarProps, ISearchBarState> {
 
   render() {
     return (
-      <div className="ui segment">
+      <div className="ui container search-bar">
         <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="ui fluid action input">
             <input 

@@ -9,14 +9,16 @@ interface ICopyBoardProps {
 export class CopyBoard extends Component<ICopyBoardProps, Nothing> {
   render() {
     return (
-      <div className="ui action input">
-        <input value={this.props.text} readOnly />
-        <CopyToClipboard text={this.props.text}>
-          <button className="ui blue right labeled icon button">
-            <i className="copy icon"></i>
-            Copy
-          </button>
-        </CopyToClipboard>
+      <div className="ui container copy-panel">
+        <div className="ui fluid action input">
+          <input value={this.props.text} readOnly />
+          <CopyToClipboard text={this.props.text}>
+            <button className="ui button grey">
+              <i className="copy icon"></i>
+              Copy
+            </button>
+          </CopyToClipboard>
+        </div>
       </div>
     )
   }
