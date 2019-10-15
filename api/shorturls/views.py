@@ -29,7 +29,7 @@ def shorturl_create_view(request):
 
         # Generate a url code
         while (True):
-            url_code = generate_code()
+            url_code = generate_code()  # TODO: encrypt
             if not ShortUrl.objects.filter(url_code=url_code).exists():
                 break
 
