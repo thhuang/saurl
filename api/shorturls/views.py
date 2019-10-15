@@ -29,13 +29,13 @@ def shorturl_create_view(request):
 
         # Generate a url code
         while (True):
-            url_code = generate_code()  # TODO: encrypt
+            url_code = generate_code()  # TODO: Encrypt
             if not ShortUrl.objects.filter(url_code=url_code).exists():
                 break
 
         # Create a new instance
         serializer = ShortUrlSerializer(data={
-            'user_id': user_id,
+            'user_id': user_id,  # TODO: Check anonymous
             'long_url': long_url,
             'url_code': url_code,
             'short_url': join(settings.BASE_URL, url_code),
