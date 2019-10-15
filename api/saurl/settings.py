@@ -23,11 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4hc+*ol_d*&e85v$9zva&%jw&cf^efvtfb!gf=#prr66wgot^o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'api',
+]
 
-BASE_URL = 'http://localhost:16384'
+BASE_URL = 'http://localhost:16384'  # TODO: Change this
 
 # Application definition
 

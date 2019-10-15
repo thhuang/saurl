@@ -3,6 +3,8 @@ from django.conf import settings
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.timezone import now
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
 from rest_framework.parsers import JSONParser
 from utils.generate_code import generate_code
 from .models import ShortUrl
@@ -15,12 +17,22 @@ def shorturl_create_view(request):
     Create a new short URL if it does not exist yet.
     """
     if request.method == 'POST':
+
         data = JSONParser().parse(request)
         user_id = data.get('user_id')
         long_url = data.get('long_url')
 
-        # TODO: Is URL valid?
-        # TODO: Is URL shorten?
+        # Verify URL
+        try:
+            validate = URLValidator(schemes=('http', 'https', 'ftp', 'ftps', 'rtsp', 'rtmp'))
+            validate(long_url)
+        except ValidationError:
+            return JsonResponse({'message': 'Bad Request'}, status=400)
+
+        # If the URL is shorten
+        if ShortUrl.objects.filter(short_url=long_url).exists():
+            serializer = ShortUrlSerializer(ShortUrl.objects.get(short_url=long_url))
+            return JsonResponse(serializer.data, status=201) 
 
         # If the shorten URL already exists
         if ShortUrl.objects.filter(long_url=long_url).exists():

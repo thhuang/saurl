@@ -24,4 +24,8 @@ server {
     rewrite /api/(.*) /$1 break;
     proxy_pass http://api;
   }
+
+  location ~ "^/[a-zA-Z0-9]{7}/?$" {
+    proxy_pass http://api;
+  }
 }
