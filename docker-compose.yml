@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       context: ./api
     ports:
-    - "16384:8000"
+    - "16384:5000"
     volumes:
       - ./api:/app
   client:
