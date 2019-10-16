@@ -33,7 +33,7 @@ export class SearchBar extends Component<ISearchBarProps, ISearchBarState> {
               value={this.state.longUrl}
               onChange={e => this.setState({longUrl: e.target.value})}
              />
-            <button className="ui button" >
+            <button className="ui grey button" >
               Shorten
             </button>
           </div>
