@@ -133,12 +133,14 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-### Django ###
+# Django
 *.log
 *.pot
 *.pyc
 __pycache__/
 local_settings.py
-
 .env
 db.sqlite3
+
+# Misc
+.tmp/
