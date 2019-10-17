@@ -145,3 +145,4 @@ api/static/
 
 # Misc
 .tmp/
+api/keys
