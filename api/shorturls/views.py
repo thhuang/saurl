@@ -1,7 +1,6 @@
 from os.path import join
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from django.utils.timezone import now
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
@@ -11,7 +10,6 @@ from .models import ShortUrl
 from .serializers import ShortUrlSerializer
 
 
-@csrf_exempt  # TODO: Just for testing! Remove csrf_exempt!
 def shorturl_create_view(request):
     """
     Create a new short URL if it does not exist yet.
