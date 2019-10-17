@@ -12,7 +12,10 @@ services:
       dockerfile: Dockerfile
       context: ./api
     volumes:
-      - ./api:/app
+    - ./api:/app
+    - ./api/keys:/app/keys
+    env_file:
+    - ./api/.env
   client:
     build:
       dockerfile: Dockerfile
