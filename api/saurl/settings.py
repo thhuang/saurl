@@ -25,9 +25,7 @@ SECRET_KEY = '4hc+*ol_d*&e85v$9zva&%jw&cf^efvtfb!gf=#prr66wgot^o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [
-    'api',
-]
+ALLOWED_HOSTS = ['*']
 
 BASE_URL = 'http://localhost:16384'  # TODO: Change this
 
