@@ -56,16 +56,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'saurl.wsgi.application'
 
-USE_SQLITE = True  # TODO: Change to False
+USE_DATABASE = os.environ['USE_DATABASE']
 
-if USE_SQLITE:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else:
+if USE_DATABASE == 'postgres':
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -80,6 +73,13 @@ else:
                 'sslcert': os.environ['DB_SSL_CERT'],
                 'sslkey': os.environ['DB_SSL_KEY'],
             }
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 
