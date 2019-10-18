@@ -1,5 +1,7 @@
 # saurl
-We create Super Awesome URLs.
+![](https://travis-ci.org/thhuang/saurl.svg?branch=master)
+
+Super Awesome URLs Shortener.
 
 ## Preparation
 1. [Install Docker](https://docs.docker.com/install/)
