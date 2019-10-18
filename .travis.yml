@@ -21,7 +21,7 @@ before_install:
 
 script:
 - docker run -e CI=true tzuhsuanhuang/saurl-client-test yarn test
-- docker run -e CI=true tzuhsuanhuang/saurl-api-test python manage.py test
+- docker run -e CI=true -e DJANGO_SECRET_KEY -e USE_DATABASE tzuhsuanhuang/saurl-api-test python manage.py test
 
 deploy:
   provider: script
