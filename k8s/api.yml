@@ -20,11 +20,10 @@ spec:
         - containerPort: 5000
         env:
         - name: USE_DATABASE
-          value: 'sqlite3'
-          # valueFrom:
-          #   secretKeyRef:
-          #     name: db-secret
-          #     key: USE_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: USE_DATABASE
         - name: DB_NAME
           valueFrom:
             secretKeyRef:
