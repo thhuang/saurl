@@ -6,13 +6,13 @@ build: build-client build-api
 push: push-client push-api
 .PHONY: push
 
-.PHONY: apply-minikube
-apply-minikube:
-	kubectl apply -f k8s/minikube
+.PHONY: apply
+apply:
+	kubectl apply -f k8s
 
-.PHONY: delete-minikube
-delete-minikube:
-	kubectl delete -f k8s/minikube
+.PHONY: delete
+delete:
+	kubectl delete -f k8s
 
 ##########
 # client #
@@ -26,13 +26,13 @@ build-client:
 push-client:
 	docker push $(USER_NAME)/saurl-client
 
-.PHONY: apply-minikube-client
-apply-minikube-client:
-	kubectl apply -f k8s/minikube/client.yml
+.PHONY: apply-client
+apply-client:
+	kubectl apply -f k8s/client.yml
 
-.PHONY: delete-minikube-client
-delete-minikube-client:
-	kubectl delete -f k8s/minikube/client.yml
+.PHONY: delete-client
+delete-client:
+	kubectl delete -f k8s/client.yml
 
 #######
 # api #
@@ -46,13 +46,13 @@ build-api:
 push-api:
 	docker push $(USER_NAME)/saurl-api
 
-.PHONY: apply-minikube-api
-apply-minikube-api:
-	kubectl apply -f k8s/minikube/api.yml
+.PHONY: apply-api
+apply-api:
+	kubectl apply -f k8s/api.yml
 
-.PHONY: delete-minikube-api
-delete-minikube-api:
-	kubectl delete -f k8s/minikube/api.yml
+.PHONY: delete-api
+delete-api:
+	kubectl delete -f k8s/api.yml
 
 ############
 # minikube #
