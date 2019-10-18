@@ -5,7 +5,7 @@ class Header extends Component {
     return (
       <div>
         <h1 className="saurl">saurl</h1>
-        <h4 className="description">We create Super Awesome URLs</h4>
+        <h4 className="description">Create your Super Awesome URLs</h4>
       </div>
     );
   }

@@ -3,17 +3,14 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-# SECRET_KEY = 'afsdasdfiuhasopiudfhjaoipsdfj89up890f23oj;'
 
 DEBUG = False
 
-HOST = '192.168.99.103'  # TODO: Change this
+HOST = 'saurl.io'
 
-ALLOWED_HOSTS = [HOST, 'api']
+ALLOWED_HOSTS = [HOST, '192.168.99.103', 'api']
 
 BASE_URL = os.path.join('http://', HOST)
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -115,7 +112,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
