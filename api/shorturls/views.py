@@ -50,7 +50,7 @@ def shorturl_create_view(request):
             'user_id': user_id,  # TODO: Check anonymous
             'long_url': long_url,
             'url_code': url_code,
-            'short_url': join(settings.BASE_URL, url_code),
+            'short_url': join(settings.HOST, url_code),
             'created': now(),
         })
 
