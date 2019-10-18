@@ -1,5 +1,5 @@
 # saurl
-Super Awesome URL Shortener.
+We create Super Awesome URLs.
 
 ## Preparation
 1. [Install Docker](https://docs.docker.com/install/)
