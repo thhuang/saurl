@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: tzuhsuanhuang/saurl-api:sqlite3
+        image: tzuhsuanhuang/saurl-api
         imagePullPolicy: Always
         ports:
         - containerPort: 5000
@@ -44,6 +44,11 @@ spec:
             secretKeyRef:
               name: db-secret
               key: DB_PORT
+        - name: DJANGO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: DJANGO_SECRET_KEY
         - name: DB_ROOT_CERT
           valueFrom:
             secretKeyRef:
