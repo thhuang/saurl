@@ -14,7 +14,5 @@ We create Super Awesome URLs.
 ## QuickStart
 Run the following commands to launch the application on http://localhost:16384/
 ```
-$ docker-compose build
-$ docker-compose run api python manage.py migrate --run-syncdb
 $ docker-compose up
 ```

@@ -8,18 +8,6 @@ services:
     ports:
     - '16384:80'
   api:
-    build:
-      dockerfile: Dockerfile
-      context: ./api
-    volumes:
-    - ./api:/app
-    - ./api/keys:/app/keys
-    env_file:
-    - ./api/.env
+    image: tzuhsuanhuang/saurl-api:sqlite3
   client:
-    build:
-      dockerfile: Dockerfile
-      context: ./client
-    volumes:
-    - /app/node_modules
-    - ./client:/app
+    image: tzuhsuanhuang/saurl-client:sqlite3
