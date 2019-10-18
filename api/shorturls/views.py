@@ -1,7 +1,7 @@
 from os.path import join
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.timezone import now
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
@@ -11,7 +11,7 @@ from .models import ShortUrl
 from .serializers import ShortUrlSerializer
 
 
-@csrf_exempt  # TODO: Just for testing! Remove csrf_exempt!
+@ensure_csrf_cookie
 def shorturl_create_view(request):
     """
     Create a new short URL if it does not exist yet.
@@ -24,24 +24,27 @@ def shorturl_create_view(request):
 
         # Verify URL
         try:
-            validate = URLValidator(schemes=('http', 'https', 'ftp', 'ftps', 'rtsp', 'rtmp'))
+            validate = URLValidator(
+                schemes=('http', 'https', 'ftp', 'ftps', 'rtsp', 'rtmp'))
             validate(long_url)
         except ValidationError:
             return JsonResponse({'message': 'Bad Request'}, status=400)
 
         # If the URL is shorten
         if ShortUrl.objects.filter(short_url=long_url).exists():
-            serializer = ShortUrlSerializer(ShortUrl.objects.get(short_url=long_url))
-            return JsonResponse(serializer.data, status=201) 
+            serializer = ShortUrlSerializer(
+                ShortUrl.objects.get(short_url=long_url))
+            return JsonResponse(serializer.data, status=201)
 
         # If the shorten URL already exists
         if ShortUrl.objects.filter(long_url=long_url).exists():
-            serializer = ShortUrlSerializer(ShortUrl.objects.get(long_url=long_url))
-            return JsonResponse(serializer.data, status=201) 
+            serializer = ShortUrlSerializer(
+                ShortUrl.objects.get(long_url=long_url))
+            return JsonResponse(serializer.data, status=201)
 
         # Generate a url code
         while (True):
-            url_code = generate_code()  # TODO: Encrypt
+            url_code = generate_code()
             if not ShortUrl.objects.filter(url_code=url_code).exists():
                 break
 
