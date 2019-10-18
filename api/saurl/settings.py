@@ -25,7 +25,8 @@ SECRET_KEY = '4hc+*ol_d*&e85v$9zva&%jw&cf^efvtfb!gf=#prr66wgot^o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False  # TODO: Change to False
 
-HOST = '192.168.99.103'  # TODO: Change this
+# HOST = '192.168.99.103'  # TODO: Change this
+HOST = 'localhost:16384'  # TODO: Change this
 
 ALLOWED_HOSTS = [HOST, 'api']
 
