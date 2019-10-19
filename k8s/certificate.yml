@@ -4,10 +4,6 @@ metadata:
   name: saurl-io-tls
 spec:
   secretName: saurl-io
-  issuerRef:
-    name: letsencrypt-prod
-    kind: ClusterIssuer
-  commonName: saurl.io
   dnsNames:
   - saurl.io
   - www.saurl.io
@@ -18,3 +14,7 @@ spec:
       domains:
       - saurl.io
       - www.saurl.io
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: saurl.io
