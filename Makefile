@@ -6,13 +6,13 @@ build: build-client build-api
 push: push-client push-api
 .PHONY: push
 
-.PHONY: apply
+.PHONY: apply-k8s
 apply:
 	kubectl apply -f k8s
 	kubectl set image deployment/client-deployment client=tzuhsuanhuang/saurl-client:test
 	kubectl set image deployment/api-deployment api=tzuhsuanhuang/saurl-api:test
 
-.PHONY: delete
+.PHONY: delete-k8s
 delete:
 	kubectl delete -f k8s
 
@@ -62,9 +62,17 @@ delete-api:
 # minikube #
 ############
 
-.PHONT: minikube-start
-minikube-start:
+.PHONT: start
+start:
 	minikube start
+
+.PHONT: ip
+ip:
+	minikube ip
+
+.PHONT: dashboard
+dashboard:
+	minikube dashboard
 
 ###########
 # kubectl #
@@ -85,3 +93,7 @@ get-pods:
 .PHONY: get-services
 get-services:
 	kubectl get services
+
+.PHONY: get-ingress
+get-ingress:
+	kubectl get ingresses.extensions
