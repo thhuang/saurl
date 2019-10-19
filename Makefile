@@ -6,15 +6,11 @@ build: build-client build-api
 push: push-client push-api
 .PHONY: push
 
+apply-k8s: apply-client apply-api apply-ingress
 .PHONY: apply-k8s
-apply:
-	kubectl apply -f k8s
-	kubectl set image deployment/client-deployment client=tzuhsuanhuang/saurl-client:test
-	kubectl set image deployment/api-deployment api=tzuhsuanhuang/saurl-api:test
 
+delete-k8s: delete-client delete-api delete-ingress
 .PHONY: delete-k8s
-delete:
-	kubectl delete -f k8s
 
 ##########
 # client #
@@ -57,6 +53,18 @@ apply-api:
 .PHONY: delete-api
 delete-api:
 	kubectl delete -f k8s/api.yml
+
+###########
+# ingress #
+###########
+
+.PHONY: apply-ingress
+apply-ingress:
+	kubectl apply -f nginx/ingress-test.yml
+
+.PHONY: delete-ingress
+delete-ingress:
+	kubectl delete -f nginx/ingress-test.yml
 
 ############
 # minikube #
