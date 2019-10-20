@@ -143,6 +143,9 @@ local_settings.py
 db.sqlite3
 api/static/
 
+# Node.js
+node_modules/
+
 # Misc
 .tmp/
 api/keys

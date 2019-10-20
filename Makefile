@@ -6,10 +6,10 @@ build: build-client build-api
 push: push-client push-api
 .PHONY: push
 
-apply-k8s: apply-client apply-api apply-ingress
+apply-k8s: apply-client apply-api apply-ingress # apply-redis
 .PHONY: apply-k8s
 
-delete-k8s: delete-client delete-api delete-ingress
+delete-k8s: delete-client delete-api delete-ingress # delete-redis
 .PHONY: delete-k8s
 
 ##########
@@ -19,6 +19,11 @@ delete-k8s: delete-client delete-api delete-ingress
 .PHONY: build-client
 build-client:
 	docker build -t $(USER_NAME)/saurl-client:test client/.
+
+.PHONY: run-client
+run-client:
+	docker build -t $(USER_NAME)/saurl-client:test -f client/Dockerfile.dev client/.
+	docker run -it -v /app/node_modules -v $(shell pwd)/client:/app tzuhsuanhuang/saurl-client:test sh
 
 .PHONY: push-client
 push-client:
@@ -53,6 +58,18 @@ apply-api:
 .PHONY: delete-api
 delete-api:
 	kubectl delete -f k8s/api.yml
+
+# #########
+# # redis #
+# #########
+
+# .PHONY: apply-redis
+# apply-redis:
+# 	kubectl apply -f k8s/redis.yml
+
+# .PHONY: delete-redis
+# delete-redis:
+# 	kubectl delete -f k8s/redis.yml
 
 ###########
 # ingress #
