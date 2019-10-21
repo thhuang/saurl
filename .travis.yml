@@ -14,7 +14,7 @@ before_install:
 - gcloud components update kubectl
 - gcloud auth activate-service-account --key-file service-account.json
 - gcloud config set project saurl-256606
-- gcloud config set compute/zone asia-east1-a
+- gcloud config set compute/zone asia-east1-b	
 - gcloud container clusters get-credentials saurl-cluster
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t tzuhsuanhuang/saurl-client-test -f ./client/Dockerfile.dev ./client
