@@ -4,11 +4,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-DEBUG = False
+DEBUG = True  # TODO: False
 
 HOST = 'saurl.io'
 
-ALLOWED_HOSTS = [HOST, '192.168.99.103', 'api']
+ALLOWED_HOSTS = [HOST, '192.168.99.105', 'api']
 
 BASE_URL = os.path.join('http://', HOST)
 
