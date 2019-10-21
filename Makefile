@@ -16,9 +16,12 @@ delete-k8s: delete-client delete-api delete-ingress # delete-redis
 # client #
 ##########
 
+refresh-client: delete-client build-client push-client apply-client
+.PHONY: refresh-client
+
 .PHONY: build-client
 build-client:
-	docker build -t $(USER_NAME)/saurl-client:test client/.
+	docker build --build-arg REACT_APP_API_TOKEN -t $(USER_NAME)/saurl-client:test client/.
 
 .PHONY: run-client
 run-client:
@@ -41,6 +44,9 @@ delete-client:
 #######
 # api #
 #######
+
+refresh-api: delete-api build-api push-api apply-api
+.PHONY: refresh-api
 
 .PHONY: build-api
 build-api:
