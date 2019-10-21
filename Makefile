@@ -46,6 +46,11 @@ delete-client:
 build-api:
 	docker build -t $(USER_NAME)/saurl-api:test api/.
 
+.PHONY: run-api
+run-api:
+	docker build -t $(USER_NAME)/saurl-api:test -f api/Dockerfile.dev api/.
+	docker run -it -v $(shell pwd)/api:/app tzuhsuanhuang/saurl-api:test sh
+
 .PHONY: push-api
 push-api:
 	docker push $(USER_NAME)/saurl-api:test
