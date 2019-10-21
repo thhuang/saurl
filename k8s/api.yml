@@ -49,21 +49,6 @@ spec:
             secretKeyRef:
               name: db-secret
               key: DB_PORT
-        - name: DB_ROOT_CERT
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: DB_ROOT_CERT
-        - name: DB_SSL_CERT
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: DB_SSL_CERT
-        - name: DB_SSL_KEY
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: DB_SSL_KEY
         - name: DJANGO_SECRET_KEY
           valueFrom:
             secretKeyRef:
