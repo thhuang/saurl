@@ -1,23 +1,27 @@
 from os.path import join
 from django.conf import settings
 from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import ensure_csrf_cookie
 from django.utils.timezone import now
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
+from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.parsers import JSONParser
 from utils.generate_code import generate_code
 from .models import ShortUrl
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from .serializers import ShortUrlSerializer
 
 
-@ensure_csrf_cookie
-def shorturl_create_view(request):
-    """
-    Create a new short URL if it does not exist yet.
-    """
-    if request.method == 'POST':
+class ShortUrlsViewSet(viewsets.ViewSet):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
+    def create(self, request):
+        """
+        Create a new short URL if it does not exist yet.
+        """
         data = JSONParser().parse(request)
         user_id = data.get('user_id')
         long_url = data.get('long_url')
@@ -50,7 +54,7 @@ def shorturl_create_view(request):
 
         # Create a new instance
         serializer = ShortUrlSerializer(data={
-            'user_id': user_id,  # TODO: Check anonymous
+            'user_id': user_id,
             'long_url': long_url,
             'url_code': url_code,
             'short_url': join(settings.HOST, url_code),
@@ -64,8 +68,7 @@ def shorturl_create_view(request):
 
         return JsonResponse(serializer.errors, status=400)
 
-    # TODO: Just for testing. Remove GET method in the future.
-    elif request.method == 'GET':
+    def list(self, request):
         shorturls = ShortUrl.objects.all()
         serializer = ShortUrlSerializer(shorturls, many=True)
         return JsonResponse(serializer.data, safe=False)

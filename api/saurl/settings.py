@@ -8,9 +8,9 @@ DEBUG = False
 
 HOST = 'saurl.io'
 
-ALLOWED_HOSTS = [HOST, '192.168.99.103', 'api']
+ALLOWED_HOSTS = [HOST, '192.168.99.105', '35.185.172.105', 'api']  # TODO: update
 
-BASE_URL = os.path.join('http://', HOST)
+BASE_URL = os.path.join('https://', HOST)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     'rest_framework',
     'shorturls',
 ]
