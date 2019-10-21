@@ -8,7 +8,7 @@ DEBUG = False
 
 HOST = 'saurl.io'
 
-ALLOWED_HOSTS = [HOST, '192.168.99.105', '35.185.172.105', 'api']  # TODO: update
+ALLOWED_HOSTS = [HOST, '192.168.99.105', 'api']  # TODO: update
 
 BASE_URL = os.path.join('https://', HOST)
 
@@ -65,12 +65,6 @@ if USE_DATABASE == 'postgres':
             'PASSWORD': os.environ['DB_PASSWORD'],
             'HOST': os.environ['DB_HOST'],
             'PORT': os.environ['DB_PORT'],
-            'OPTIONS': {
-                'sslmode': 'verify-ca',
-                'sslrootcert': os.environ['DB_ROOT_CERT'],
-                'sslcert': os.environ['DB_SSL_CERT'],
-                'sslkey': os.environ['DB_SSL_KEY'],
-            }
         }
     }
 else:
