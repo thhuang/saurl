@@ -49,11 +49,6 @@ spec:
             secretKeyRef:
               name: db-secret
               key: DB_PORT
-        - name: DJANGO_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: db-secret
-              key: DJANGO_SECRET_KEY
         - name: DB_ROOT_CERT
           valueFrom:
             secretKeyRef:
@@ -69,6 +64,11 @@ spec:
             secretKeyRef:
               name: db-secret
               key: DB_SSL_KEY
+        - name: DJANGO_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: django-secret
+              key: DJANGO_SECRET_KEY
         resources:
           requests:
             memory: "64Mi"
