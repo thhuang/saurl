@@ -2,6 +2,7 @@ FROM node:8.16.2-alpine as builder
 LABEL maintainer="thhuang@caealumni.ce.ntu.edu.tw"
 
 WORKDIR /app
+ARG REACT_APP_API_TOKEN
 
 COPY ./package.json ./
 RUN npm install

@@ -4,13 +4,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
-DEBUG = True  # TODO: False
+DEBUG = False
 
 HOST = 'saurl.io'
 
 ALLOWED_HOSTS = [HOST, '192.168.99.105', 'api']
 
-BASE_URL = os.path.join('http://', HOST)
+BASE_URL = os.path.join('https://', HOST)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework.authtoken',
     'rest_framework',
     'shorturls',
 ]

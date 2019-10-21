@@ -1,4 +1,4 @@
-docker build -t tzuhsuanhuang/saurl-client:latest -t tzuhsuanhuang/saurl-client:$SHA -f ./client/Dockerfile ./client
+docker build --build-arg REACT_APP_API_TOKEN -t tzuhsuanhuang/saurl-client:latest -t tzuhsuanhuang/saurl-client:$SHA -f ./client/Dockerfile ./client
 docker build -t tzuhsuanhuang/saurl-api:latest -t tzuhsuanhuang/saurl-api:$SHA -f ./api/Dockerfile ./api
 
 docker push tzuhsuanhuang/saurl-client:latest

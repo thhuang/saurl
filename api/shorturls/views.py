@@ -9,10 +9,15 @@ from rest_framework.decorators import action
 from rest_framework.parsers import JSONParser
 from utils.generate_code import generate_code
 from .models import ShortUrl
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from .serializers import ShortUrlSerializer
 
 
 class ShortUrlsViewSet(viewsets.ViewSet):
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
+
     def create(self, request):
         """
         Create a new short URL if it does not exist yet.
