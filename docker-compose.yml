@@ -10,4 +10,9 @@ services:
   api:
     image: tzuhsuanhuang/saurl-api:sqlite3
   client:
-    image: tzuhsuanhuang/saurl-client:sqlite3
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+    - /app/node_modules
+    - ./client:/app
