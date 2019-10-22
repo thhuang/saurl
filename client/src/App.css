@@ -2,6 +2,10 @@ body {
   background: #EBEBEB;
 }
 
+input {
+  font-size: 16px !important;
+}
+
 .App {
   height: 100%;
 }
@@ -24,7 +28,7 @@ body {
 }
 
 .description {
-  font-size: calc(12px + 0.1em);
+  font-size: calc(14px + 0.1em);
   margin-bottom: 1em;
 }
 
