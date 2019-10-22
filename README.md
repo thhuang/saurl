@@ -20,4 +20,4 @@ Run the following commands to launch the application on http://localhost:16384/
 $ docker-compose up
 ```
 
-![](.misc/demo.png)
+![](./misc/demo.png)
