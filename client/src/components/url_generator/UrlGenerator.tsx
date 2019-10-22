@@ -34,9 +34,9 @@ export class UrlGenerator extends Component<Nothing, IUrlGeneratorState> {
 
   render() {
     return (
-      <div>
+      <div className="panel">
         <SearchBar onSubmit={this.onUrlSubmit} />
-        <CopyBoard text={this.state.shortUrl} />
+        <CopyBoard shortUrl={this.state.shortUrl} />
       </div>
     )
   }
