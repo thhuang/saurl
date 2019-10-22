@@ -48,8 +48,8 @@ div.ui.container.search-bar {
 }
 
 div.ui.container.copy-board {
-  padding-right: calc(50% - 110px);
-  padding-left: calc(50% - 110px);
+  padding-right: calc(50% - 150px);
+  padding-left: calc(50% - 150px);
   margin-right: 0 !important;
   margin-left: 0 !important;
   width: 100%;
