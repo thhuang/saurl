@@ -11,9 +11,6 @@ export class CopyBoard extends Component<ICopyBoardProps, Nothing> {
     return (
       <div className="ui container copy-board">
         <div className="ui fluid action input">
-          <div className="ui icon button grey basic">
-            Shorten URL >>
-          </div>
           <input value={this.props.shortUrl} readOnly />
           <CopyToClipboard text={this.props.shortUrl}>
             <button className="ui icon button grey">
