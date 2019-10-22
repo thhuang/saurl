@@ -67,8 +67,3 @@ class ShortUrlsViewSet(viewsets.ViewSet):
             return JsonResponse(serializer.data, status=201)
 
         return JsonResponse(serializer.errors, status=400)
-
-    def list(self, request):
-        shorturls = ShortUrl.objects.all()
-        serializer = ShortUrlSerializer(shorturls, many=True)
-        return JsonResponse(serializer.data, safe=False)
