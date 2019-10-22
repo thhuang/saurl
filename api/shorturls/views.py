@@ -57,7 +57,7 @@ class ShortUrlsViewSet(viewsets.ViewSet):
             'user_id': user_id,
             'long_url': long_url,
             'url_code': url_code,
-            'short_url': join(settings.HOST, url_code),
+            'short_url': join(settings.BASE_URL, url_code),
             'created': now(),
         })
 
