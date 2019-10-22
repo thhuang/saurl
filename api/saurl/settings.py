@@ -8,7 +8,7 @@ DEBUG = False
 
 HOST = 'saurl.io'
 
-ALLOWED_HOSTS = [HOST, '192.168.99.105', 'api']  # TODO: update
+ALLOWED_HOSTS = [HOST]
 
 BASE_URL = os.path.join('https://', HOST)
 
