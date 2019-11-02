@@ -1,7 +1,7 @@
-# [saurl](https://saurl.io)
+# saurl
 ![](https://travis-ci.org/thhuang/saurl.svg?branch=master)
 
-Super Awesome URLs Shortener. Try it: https://saurl.io
+Super Awesome URLs Shortener.
 
 ## Run on your local machine
 ### Preparation
