@@ -1,5 +1,4 @@
 # saurl
-![](https://travis-ci.org/thhuang/saurl.svg?branch=master)
 
 Super Awesome URLs Shortener.
 
